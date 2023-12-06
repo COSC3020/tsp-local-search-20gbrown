@@ -51,3 +51,11 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+## Time complexity
+
+The worst-case time-complexity of this algorithm is $O(n^3)$. This is due, for the most part, to the nested loops. The outer loop runs for a maximum of 'maxNoImprovement' iterations. The inner loops have $O(n^2)$ iterations for each outer loop iteration. The 'routeDist' function is called inside the inner loops which is $O(n)$ time beacause it iterates over the entire route. Combining these factors we get the time complexity of $O(n^3)$. 
+
+## Memory Complexity
+
+The worse-case memory complexity is $O(n)$. The reason for this is the data structures 'route' (array) and 'distance_matrix'. The array has a memory complexity of $O(n)$ and the 'distance_matrix' is assumed to be constant, and I believe is not dependent on the input size. 
