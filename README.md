@@ -59,3 +59,7 @@ The worst-case time-complexity of this algorithm is $O(n^3)$. This is due, for t
 ## Memory Complexity
 
 The worse-case memory complexity is $O(n)$. The reason for this is the data structures 'route' (array) and 'distance_matrix'. The array has a memory complexity of $O(n)$ and the 'distance_matrix' is assumed to be constant, and I believe is not dependent on the input size. 
+
+## Note on 'noImprovementCount'
+
+The 'noImprovementCount' variable is reset to zero whenever a better route is found in the nested loops. This means that in the worst case, where there is no improvement for 'maxNoImprovement' iterations, the outer while loop runs for 'maxNoImprovement' iterations. However, since 'maxNoImprovement' is a constant factor, it does not change the overall worst-case asymptotic complexity.
