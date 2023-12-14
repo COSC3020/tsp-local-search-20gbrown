@@ -54,12 +54,18 @@ reasoning, to this markdown file.
 
 ## Time complexity
 
-The worst-case time-complexity of this algorithm is $O(n^3)$. This is due, for the most part, to the nested loops. The outer loop runs for a maximum of 'maxNoImprovement' iterations. The inner loops have $O(n^2)$ iterations for each outer loop iteration. The 'routeDist' function is called inside the inner loops which is $O(n)$ time beacause it iterates over the entire route. Combining these factors we get the time complexity of $O(n^3)$. 
+The worst-case time-complexity of this algorithm is $O('maxNoImprovement' * n^2)$ where 'maxNoImprovement' is a constant. This is due, for the most part, to the nested loops. The outer loop runs for a maximum of 'maxNoImprovement' iterations. The inner loops have $O(n^2)$ iterations for each outer loop iteration. The 'routeDist' function is called inside the inner loops which is $O(n)$ time beacause it iterates over the entire route. Combining these factors we get the time complexity of $O('maxNoImprovement' * n^2)$. 
 
 ## Memory Complexity
 
-The worse-case memory complexity is $O(n)$. The reason for this is the data structures 'route' (array) and 'distance_matrix'. The array has a memory complexity of $O(n)$ and the 'distance_matrix' is assumed to be constant, and I believe is not dependent on the input size. 
+The worse-case memory complexity is $O(n^2)$. The reason for this is the data structures 'route' (array) and 'distance_matrix' which is a square matrix. The array has a memory complexity of $O(n)$ and the 'distance_matrix' is $O(n^2)$. 
 
 ## Note on 'noImprovementCount'
 
-The 'noImprovementCount' variable is reset to zero whenever a better route is found in the nested loops. This means that in the worst case, where there is no improvement for 'maxNoImprovement' iterations, the outer while loop runs for 'maxNoImprovement' iterations. However, since 'maxNoImprovement' is a constant factor, it does not change the overall worst-case asymptotic complexity.
+The 'noImprovementCount' variable is reset to zero whenever a better route is found in the nested loops. This means that in the worst case, where there is no improvement for 'maxNoImprovement' iterations, the outer while loop runs for 'maxNoImprovement' iterations, contributing to the overall time complexity. The resetting of 'noImprovementCount' does affect the asymptotic complexity.
+
+## Note
+
+I could be wrong with new time complexity but after some evaluation that 'maxNoImprovement is a constant I rethought the process. I also changes the memory complexity because of the assumption of a square matrix. 
+
+https://www.hiredintech.com/algorithms/computational-complexity/memory-complexity/
