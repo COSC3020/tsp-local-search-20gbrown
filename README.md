@@ -1,3 +1,4 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=13163031&assignment_repo_type=AssignmentRepo)
 # Traveling Salesperson Problem -- Local Search
 
 This exercise is about the Traveling Salesperson Problem I mentioned in the
@@ -50,3 +51,18 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+## Time complexity
+
+The worst-case time-complexity of this algorithm is $O('maxNoImprovement' * n^2)$ where 'maxNoImprovement' is a variable. This is due, for the most part, to the nested loops. The outer loop runs for a maximum of 'maxNoImprovement' iterations. The inner loops have $O(n^2)$ iterations for each outer loop iteration. The 'routeDist' function is called inside the inner loops which is $O(n)$ time beacause it iterates over the entire route. Combining these factors we get the time complexity of $O('maxNoImprovement' * n^2)$. 
+
+## Memory Complexity
+
+The worse-case memory complexity is $O(n^2)$. The reason for this is the data structures 'route' (array) and 'distance_matrix' which is a square matrix. The array has a memory complexity of $O(n)$ and the 'distance_matrix' is $O(n^2)$. 
+
+## Note on 'noImprovementCount'
+
+The 'noImprovementCount' variable is reset to zero whenever a better route is found in the nested loops. This means that in the worst case, where there is no improvement for 'maxNoImprovement' iterations, the outer while loop runs for 'maxNoImprovement' iterations, contributing to the overall time complexity. The resetting of 'noImprovementCount' does affect the asymptotic complexity.
+
+
+https://www.hiredintech.com/algorithms/computational-complexity/memory-complexity/
